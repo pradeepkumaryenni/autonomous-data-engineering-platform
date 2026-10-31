@@ -1,0 +1,230 @@
+{
+  "_comment": "Synthetic fixture data, used only when DEMO_MODE=true. Each section mirrors the shape of the Databricks REST response the real client reads: clusters/get, DESCRIBE DETAIL, jobs/list and jobs/runs/list. Nothing here came from a real workspace.",
+  "cluster": {
+    "cluster_id": "0101-demo-etl01",
+    "cluster_name": "etl-transactions",
+    "state": "RUNNING",
+    "num_workers": 8,
+    "node_type_id": "Standard_DS4_v2",
+    "driver_node_type_id": "Standard_DS4_v2",
+    "spark_version": "14.3.x-scala2.12",
+    "autotermination_minutes": 0
+  },
+  "table_details": {
+    "transactions": {
+      "format": "delta",
+      "location": "abfss://bronze@demo.dfs.core.windows.net/transactions",
+      "numFiles": 2400,
+      "sizeInBytes": 3221225472,
+      "partitionColumns": [
+        "country"
+      ],
+      "lastModified": "2024-12-03T02:12:30Z"
+    }
+  },
+  "jobs": [
+    {
+      "job_id": 1001,
+      "settings": {
+        "name": "bronze_transactions_ingest"
+      }
+    }
+  ],
+  "job_runs": [
+    {
+      "job_id": 1001,
+      "run_id": 880115,
+      "run_name": "bronze_transactions_ingest",
+      "start_time": 1733191200000,
+      "end_time": 1733191968000,
+      "trigger": "PERIODIC",
+      "state": {
+        "life_cycle_state": "TERMINATED",
+        "result_state": "SUCCESS",
+        "state_message": ""
+      }
+    },
+    {
+      "job_id": 1001,
+      "run_id": 880114,
+      "run_name": "bronze_transactions_ingest",
+      "start_time": 1733104800000,
+      "end_time": 1733105550000,
+      "trigger": "PERIODIC",
+      "state": {
+        "life_cycle_state": "TERMINATED",
+        "result_state": "SUCCESS",
+        "state_message": ""
+      }
+    },
+    {
+      "job_id": 1001,
+      "run_id": 880113,
+      "run_name": "bronze_transactions_ingest",
+      "start_time": 1733018400000,
+      "end_time": 1733019174000,
+      "trigger": "PERIODIC",
+      "state": {
+        "life_cycle_state": "TERMINATED",
+        "result_state": "SUCCESS",
+        "state_message": ""
+      }
+    },
+    {
+      "job_id": 1001,
+      "run_id": 880112,
+      "run_name": "bronze_transactions_ingest",
+      "start_time": 1732932000000,
+      "end_time": 1732932702000,
+      "trigger": "PERIODIC",
+      "state": {
+        "life_cycle_state": "TERMINATED",
+        "result_state": "SUCCESS",
+        "state_message": ""
+      }
+    },
+    {
+      "job_id": 1001,
+      "run_id": 880111,
+      "run_name": "bronze_transactions_ingest",
+      "start_time": 1732845600000,
+      "end_time": 1732846332000,
+      "trigger": "PERIODIC",
+      "state": {
+        "life_cycle_state": "TERMINATED",
+        "result_state": "SUCCESS",
+        "state_message": ""
+      }
+    },
+    {
+      "job_id": 1001,
+      "run_id": 880110,
+      "run_name": "bronze_transactions_ingest",
+      "start_time": 1732759200000,
+      "end_time": 1732759944000,
+      "trigger": "PERIODIC",
+      "state": {
+        "life_cycle_state": "TERMINATED",
+        "result_state": "SUCCESS",
+        "state_message": ""
+      }
+    },
+    {
+      "job_id": 1001,
+      "run_id": 880109,
+      "run_name": "bronze_transactions_ingest",
+      "start_time": 1732672800000,
+      "end_time": 1732673718000,
+      "trigger": "PERIODIC",
+      "state": {
+        "life_cycle_state": "TERMINATED",
+        "result_state": "SUCCESS",
+        "state_message": ""
+      }
+    },
+    {
+      "job_id": 1001,
+      "run_id": 880108,
+      "run_name": "bronze_transactions_ingest",
+      "start_time": 1732587600000,
+      "end_time": 1732588512000,
+      "trigger": "RETRY",
+      "state": {
+        "life_cycle_state": "TERMINATED",
+        "result_state": "SUCCESS",
+        "state_message": ""
+      }
+    },
+    {
+      "job_id": 1001,
+      "run_id": 880107,
+      "run_name": "bronze_transactions_ingest",
+      "start_time": 1732586400000,
+      "end_time": 1732586652000,
+      "trigger": "PERIODIC",
+      "state": {
+        "life_cycle_state": "INTERNAL_ERROR",
+        "result_state": "FAILED",
+        "state_message": "Task ingest_transactions failed: java.net.SocketTimeoutException: Read timed out while writing to ADLS (stage 4, partial output committed)"
+      }
+    },
+    {
+      "job_id": 1001,
+      "run_id": 880106,
+      "run_name": "bronze_transactions_ingest",
+      "start_time": 1732500000000,
+      "end_time": 1732500714000,
+      "trigger": "PERIODIC",
+      "state": {
+        "life_cycle_state": "TERMINATED",
+        "result_state": "SUCCESS",
+        "state_message": ""
+      }
+    },
+    {
+      "job_id": 1001,
+      "run_id": 880105,
+      "run_name": "bronze_transactions_ingest",
+      "start_time": 1732413600000,
+      "end_time": 1732414386000,
+      "trigger": "PERIODIC",
+      "state": {
+        "life_cycle_state": "TERMINATED",
+        "result_state": "SUCCESS",
+        "state_message": ""
+      }
+    },
+    {
+      "job_id": 1001,
+      "run_id": 880104,
+      "run_name": "bronze_transactions_ingest",
+      "start_time": 1732327200000,
+      "end_time": 1732327920000,
+      "trigger": "PERIODIC",
+      "state": {
+        "life_cycle_state": "TERMINATED",
+        "result_state": "SUCCESS",
+        "state_message": ""
+      }
+    },
+    {
+      "job_id": 1001,
+      "run_id": 880103,
+      "run_name": "bronze_transactions_ingest",
+      "start_time": 1732240800000,
+      "end_time": 1732241556000,
+      "trigger": "PERIODIC",
+      "state": {
+        "life_cycle_state": "TERMINATED",
+        "result_state": "SUCCESS",
+        "state_message": ""
+      }
+    },
+    {
+      "job_id": 1001,
+      "run_id": 880102,
+      "run_name": "bronze_transactions_ingest",
+      "start_time": 1732154400000,
+      "end_time": 1732155108000,
+      "trigger": "PERIODIC",
+      "state": {
+        "life_cycle_state": "TERMINATED",
+        "result_state": "SUCCESS",
+        "state_message": ""
+      }
+    },
+    {
+      "job_id": 1001,
+      "run_id": 880101,
+      "run_name": "bronze_transactions_ingest",
+      "start_time": 1732068000000,
+      "end_time": 1732068726000,
+      "trigger": "PERIODIC",
+      "state": {
+        "life_cycle_state": "TERMINATED",
+        "result_state": "SUCCESS",
+        "state_message": ""
+      }
+    }
+  ]
+}

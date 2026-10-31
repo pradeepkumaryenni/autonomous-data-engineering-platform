@@ -1,0 +1,158 @@
+{
+  "table_name": "transactions",
+  "description": "E-commerce transaction records for 2024 (synthetic)",
+  "version": "1.1.0",
+  "columns": [
+    {
+      "name": "id",
+      "dtype": "string",
+      "nullable": false,
+      "description": "Unique transaction identifier (TXN########)",
+      "constraints": {
+        "pattern": "^TXN[0-9]{8}$"
+      }
+    },
+    {
+      "name": "amount",
+      "dtype": "double",
+      "nullable": true,
+      "description": "Transaction amount in major currency units",
+      "constraints": {
+        "min": 0.01,
+        "max": 50000.0
+      }
+    },
+    {
+      "name": "customer_id",
+      "dtype": "string",
+      "nullable": false,
+      "description": "Customer identifier (CUST######)",
+      "constraints": {
+        "pattern": "^CUST[0-9]{6}$"
+      }
+    },
+    {
+      "name": "status",
+      "dtype": "string",
+      "nullable": false,
+      "description": "Transaction status",
+      "constraints": {
+        "enum": [
+          "completed",
+          "pending",
+          "failed",
+          "refunded",
+          "processing"
+        ]
+      }
+    },
+    {
+      "name": "timestamp",
+      "dtype": "timestamp",
+      "nullable": false,
+      "description": "Transaction creation timestamp (UTC)"
+    },
+    {
+      "name": "product_id",
+      "dtype": "string",
+      "nullable": false,
+      "description": "Product identifier (PROD#####)",
+      "constraints": {
+        "pattern": "^PROD[0-9]{5}$"
+      }
+    },
+    {
+      "name": "country",
+      "dtype": "string",
+      "nullable": true,
+      "description": "ISO 3166-1 alpha-2 country code",
+      "constraints": {
+        "enum": [
+          "US",
+          "GB",
+          "DE",
+          "FR",
+          "CA",
+          "AU",
+          "IN",
+          "BR",
+          "JP",
+          "SG",
+          "NL",
+          "SE",
+          "NO",
+          "CH",
+          "IT",
+          "ES",
+          "MX",
+          "AR",
+          "ZA",
+          "KR"
+        ]
+      }
+    }
+  ],
+  "quality_rules": [
+    {
+      "column": "id",
+      "check_type": "nulls",
+      "params": {
+        "threshold": 0.0
+      }
+    },
+    {
+      "column": "id",
+      "check_type": "duplicates",
+      "params": {
+        "key_columns": [
+          "id"
+        ]
+      }
+    },
+    {
+      "column": "amount",
+      "check_type": "nulls",
+      "params": {
+        "threshold": 0.05
+      }
+    },
+    {
+      "column": "amount",
+      "check_type": "range",
+      "params": {
+        "min_val": 0.01,
+        "max_val": 50000.0
+      }
+    },
+    {
+      "column": "status",
+      "check_type": "referential",
+      "params": {
+        "valid_values": [
+          "completed",
+          "pending",
+          "failed",
+          "refunded",
+          "processing"
+        ]
+      }
+    },
+    {
+      "column": "amount",
+      "check_type": "drift",
+      "params": {
+        "baseline_mean": 185.08,
+        "baseline_std": 341.89,
+        "z_threshold": 3.0
+      },
+      "baseline_source": "Jan-Nov 2024 rows before drift injection (n=9065)"
+    }
+  ],
+  "partitioned_by": [
+    "country"
+  ],
+  "primary_key": [
+    "id"
+  ],
+  "created_at": "2024-01-01T00:00:00Z"
+}
